@@ -1,0 +1,8 @@
+step 1:
+  array |   Tiny   |   Small   |   Medium   |   Large   |  Extra Large  |
+INSERT  |  58.9 μs |  199.9 μs |  283.8 μs  |14.1457 ms |  1.8344023 s  |
+APPEND  |  191 μs  |  183.5 μs |  233.4 μs  | 1.0109 ms |   4.175 ms    |
+
+intitially the two methods may seem comprable, they start out taking around the same ammoutn of time, in fact the insert is evne faster for the tiny array, but this quickly changes as more data is added to the arrays.  Its most evidant with the large array and move farward. There is a sharp increase in time between the medium and large arrays and again bewteen the large and XL. this is because the insert has and 0(n^2) while the append functions is just O(n). Because of this the appends would be a much better option than insert in the long term and for handeling lots of data.
+
+EC: Insert is a loop, like the append, but what makes insert dif. is that it inserts every new calue added to the array to the front of the array which means it also has to shift everything already in the array down an index. This takes a lot of time in and of itself but pairing that with the fact that this has to happen for every iteration of the loop and you get longer and longer run times.
